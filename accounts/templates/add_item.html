@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>商品を追加する</h2>
+  
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <!-- 商品名の入力フィールド -->
+    <label for="id_name">商品名:</label>
+    <input type="text" name="name" id="id_name" required>
+    
+    <!-- 価格の入力フィールド -->
+    <label for="id_price">価格:</label>
+    <input type="number" name="price" id="id_price" required>
+    
+    <!-- 在庫数の入力フィールド -->
+    <label for="id_quantity">在庫数:</label>
+    <input type="number" name="quantity" id="id_quantity" required>
+    
+    <!-- 商品画像のアップロードフィールド -->
+    <label for="id_image">商品画像:</label>
+    <input type="file" name="image" id="id_image" accept="image/*">
+    
+    <!-- 商品説明の入力フィールド -->
+    <label for="id_description">商品説明:</label>
+    <textarea name="description" id="id_description" required></textarea>
+    
+    <!-- 送信ボタン -->
+    <button type="submit">商品を追加</button>
+  </form>
+  
+{% endblock %}

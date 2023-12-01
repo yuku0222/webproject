@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Web Detail{% endblock %}
+
+        {% block contents  %}
+
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col offset-3">
+                    <h2>{{object.name}}</h2>
+
+
+                    <p>{{object.last_updated_at}}に追加</p>
+
+                    <p><img src="{{ object.image.url }}"></img></p>
+
+                    {% comment %} {% if request.user == object.user %} {% endcomment %}
+
+                    <form method="POST">
+
+                    <a href="{% url 'web:web_delete' object.pk %}"
+                       class="btn btn-primary my-2">削除する</a>
+                    {% comment %} {% endif %} {% endcomment %}
+
+                </div>
+            </div>
+        </div>
+        {% endblock %}
